@@ -1,5 +1,7 @@
 /* stylelint-disable selector-list-comma-newline-after */
-
+/* body{
+  background:url('https://example.com/abstract-pattern.svg') repeat;
+} */
 .blog-header {
   border-bottom: 1px solid #e5e5e5;
 }
