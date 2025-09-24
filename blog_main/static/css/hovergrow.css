@@ -1,0 +1,7 @@
+.hover-grow {
+  display: inline-block;             /* <i> needs this for transform */
+  transition: transform 0.3s ease;   /* smooth zoom */
+}
+.hover-grow:hover {
+  transform: scale(2.0);             /* grow 30% */
+}

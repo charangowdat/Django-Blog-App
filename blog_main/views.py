@@ -47,7 +47,7 @@ def login(request):
       if user is not None:
         auth.login(request, user)
         messages.success(request, "You have successfully loged in!")
-        return redirect('home')
+        return redirect('dashboard')
       messages.warning(request, "Wrong credentials!")
       return redirect('login')
   else:
@@ -59,4 +59,5 @@ def login(request):
 
 def logout(request):
   auth.logout(request)
+  messages.success(request,'You have Logged out!')
   return redirect('home')

@@ -1,0 +1,4 @@
+#Upgrade all the packages at once
+  #make sure change == to >= in the file
+  #make sure you are inide the correct env 
+  pip install -r requirements.txt --upgrade

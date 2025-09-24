@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'aboutusfeatures',
     'crispy_forms',
     "crispy_bootstrap4",
+    "dashboards",
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,7 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: "danger",
     messages.SUCCESS: "success",
+    messages.WARNING: "warning",
 }
 
 MEDIA_URL = '/media/'
