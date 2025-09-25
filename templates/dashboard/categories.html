@@ -10,12 +10,14 @@
     
       <h3>All Categories</h3>
       <a href="{% url 'add_category' %}" class="btn btn-dark float-right mb-2">Add New</a>
+      <a href="{% url 'categories' %}" class="btn btn-light float-right mb-2 mr-3" title="refresh"><i class="fa-solid fa-arrows-rotate fa-lg"></i></a>
     
     <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">No.</th>
       <th scope="col">Category Name</th>
+      <th scope="col">No. of blogs</th>
       <th scope="col">Created At</th>
       <th scope="col">Updated At</th>
       <th scope="col">Action</th>
@@ -26,7 +28,8 @@
       {% for cat in categories %}
         <tr>
           <th scope="row">{{forloop.counter}}</th>
-          <td>{{cat.category_name}}</td>
+          <td><a href = "{% url 'posts_by_category' cat.id %}" class="text-dark">{{cat.category_name}} <i class="fa-solid fa-link fa-xs"></i></a></td>
+          <td>{{cat.blog_set.count}}</td>
           <td>{{cat.created_at}}</td>
           <td>{{cat.updated_at}}</td>
           <td>

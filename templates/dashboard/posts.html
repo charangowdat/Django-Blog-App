@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <!-- left side bar -->
+  {% include 'dashboard/sidebar.html' %}
+
+  <!-- right side content -->
+   <div class="col-md-9">
+    <h3>All Blogs</h3>
+    <a href="{% url 'add_post' %}" class="btn btn-dark float-right mb-2">Add New</a>
+    <a href="{% url 'posts' %}" class="btn btn-light float-right mb-2 mr-3" title="refresh"><i class="fa-solid fa-arrows-rotate fa-lg"></i></a>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Blog title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Category</th>
+      <th scope="col">Status</th>
+      <th scope="col">Featured</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if blogs %}
+      {% for blog in blogs %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td><a href = "{% url 'blogs' blog.slug %}" class="text-dark">{{blog.title}} <i class="fa-solid fa-link fa-xs"></i></a></td>
+          <td>{{blog.author}}</td>
+          <td>{{blog.category}}</td>
+          <td>{{blog.status}}</td>
+          <td class="text-center">
+            {% if blog.is_featured %}
+              <i class="fa-solid fa-check text-success fa-lg"></i>
+            {%else%}
+              <i class="fa-solid fa-xmark text-danger fa-lg"></i>
+            {%endif%}
+          </td>
+          <td>
+            <a href = "{% url 'edit_post' blog.id %}" class=""><i class = "fa fa-edit text-info hover-grow"></i></a>
+            &nbsp;
+            <a href = "{% url 'delete_post' blog.id %}"><i class = "fa fa-trash text-danger hover-grow"></i></a>
+          </td>
+        </tr>
+      {% endfor %}
+    {% else %}
+     <h4>No categories yet</h4>
+    {% endif %}
+  </tbody>
+</table>
+   </div>
+</div>
+{% block categories %}
+
+{% endblock %}
+{% endblock %}
