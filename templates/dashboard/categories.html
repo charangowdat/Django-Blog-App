@@ -29,7 +29,7 @@
         <tr>
           <th scope="row">{{forloop.counter}}</th>
           <td><a href = "{% url 'posts_by_category' cat.id %}" class="text-dark">{{cat.category_name}} <i class="fa-solid fa-link fa-xs"></i></a></td>
-          <td>{{cat.blog_set.count}}</td>
+          <td class="text-center">{{cat.blog_set.count}}</td>
           <td>{{cat.created_at}}</td>
           <td>{{cat.updated_at}}</td>
           <td>

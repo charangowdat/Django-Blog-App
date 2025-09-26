@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="row">
   <!-- load side bar -->
   {% include 'dashboard/sidebar.html' %}
 
   <!-- right side content -->
-   <div class="col-md-9">
+   <div class="col">
     <div class="row">
       <div class="col">
         <div class="card border-default mb-3">
@@ -24,7 +25,16 @@
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      <div class="col">
+        <div class="card border-default mb-3 mx-auto" style="max-width: 400px;">
+          <div class="card-header text-center text-uppercase font-weight-bold ">All Users</div>
+          <div class="card-body text-dark">
+            <h5 class="card-title text-center">{{user_count}}</h5>
+          </div>
+        </div>
+      </div>
+    
    </div>
 </div>
 {% block categories %}

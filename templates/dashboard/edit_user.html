@@ -3,7 +3,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="row">
-  {% if perms.auth.view_user %}
+  {% if perms.auth.change_user %}
   <!-- left side bar -->
   {% include 'dashboard/sidebar.html' %}
 

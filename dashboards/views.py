@@ -16,9 +16,11 @@ from .forms import BlogPostForm, CategotryForm
 def dashboard(request):
   category_count = Category.objects.all().count()
   blogs_count = Blog.objects.all().count()
+  user_count = User.objects.all().count
   context = {
     'category_count':category_count,
     'blogs_count':blogs_count,
+    'user_count':user_count,
   }
   return render(request, 'dashboard/dashboard.html', context)
 
