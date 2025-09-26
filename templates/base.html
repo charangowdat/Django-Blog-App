@@ -23,7 +23,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-  >
+  
   </head>
   <body>
     <div class="container">
@@ -45,7 +45,12 @@
             <a class="btn btn-sm btn-warning" href="{% url 'login' %}"">Login</a> &nbsp;
             <a class="btn btn-sm btn-outline-secondary" href="{% url 'register' %}">Register</a>
             {% else %}
+            {% if perms.blogs.delete_category %}
+            {% if '/dashboard/' not in request.path %}
             <span><a href="{% url 'dashboard' %}">Dashboard</a></span>&nbsp;
+            {% endif %}
+            {% endif %}
+            <span><i class="fa-regular fa-user text-info">{{user}}</i></span>&nbsp;
             <a href="{% url 'logout' %}" class="btn btn-dark">Logout</a>
             {% endif %}
           </div>
@@ -74,7 +79,7 @@
   </div>
 {% endif %}
 <!-- Footer section -->
- <footer class="blog-footer">
+ <footer class="blog-footer mt-4">
       <p>Django blog built with by <a href="https://www.linkedin.com/in/charan-t-k-1409322a1">Charan T K🚨</a></p>
     </footer>
     </div>

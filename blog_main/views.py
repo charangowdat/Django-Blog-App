@@ -1,3 +1,4 @@
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -47,7 +48,9 @@ def login(request):
       if user is not None:
         auth.login(request, user)
         messages.success(request, "You have successfully loged in!")
-        return redirect('dashboard')
+        if request.user.has_perm("blogs.delete_category"):
+          return redirect('dashboard')
+        return redirect('home')
       messages.warning(request, "Wrong credentials!")
       return redirect('login')
   else:
@@ -61,3 +64,9 @@ def logout(request):
   auth.logout(request)
   messages.success(request,'You have Logged out!')
   return redirect('home')
+
+#Feature not available yet
+def notavailable(request):
+  messages.warning(request, 'This feature is coming soon!')
+  #Redirect to previous url
+  return redirect(request.META.get('HTTP_REFERER', '/'))

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <!-- left side bar -->
+  {% include 'dashboard/sidebar.html' %}
+
+  
+    {% if perms.auth.view_user %}
+  <!-- right side content -->
+   <div class="col-md-9">
+    <h3>All Blogs</h3>
+    <a href="{% url 'add_user' %}" class="btn btn-dark float-right mb-2">Add Users</a>
+    <a href="{% url 'users' %}" class="btn btn-light float-right mb-2 mr-3" title="refresh"><i class="fa-solid fa-arrows-rotate fa-lg"></i></a>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Active</th>
+      <th scope="col">Staff</th>
+      <th scope="col">Superuser</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if users %}
+      {% for user in users %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{user.first_name}} {{user.last_name}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>    
+          <td class="text-center">{% if user.is_active %}<i class="fa-solid fa-check text-success fa-lg"></i>{%else%}<i class="fa-solid fa-xmark text-danger fa-lg"></i>{%endif%}</td>
+          <td class="text-center">{% if user.is_staff %}<i class="fa-solid fa-check text-success fa-lg"></i>{%else%}<i class="fa-solid fa-xmark text-danger fa-lg"></i>{%endif%}</td>
+          <td class="text-center">{% if user.is_superuser %}<i class="fa-solid fa-check text-success fa-lg"></i>{%else%}<i class="fa-solid fa-xmark text-danger fa-lg"></i>{%endif%}</td>
+          <td>
+            <a href = "{% url 'edit_user' user.id %}" class=""><i class = "fa fa-edit text-info hover-grow"></i></a>
+            &nbsp;
+            <a href = "{% url 'delete_user' user.id %}"><i class = "fa fa-trash text-danger hover-grow"></i></a>
+          </td>
+        </tr>
+      {% endfor %}
+    {% else %}
+     <h4>No categories yet</h4>
+    {% endif %}
+  </tbody>
+</table>
+   </div>
+   {% else %}
+    <h4>Nah!, You don't have permission to view this page</h1>
+   {% endif %}
+</div>
+{% block categories %}
+
+{% endblock %}
+{% endblock %}

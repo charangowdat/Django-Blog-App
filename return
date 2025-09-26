@@ -1,0 +1,41 @@
+[33mcommit dbbf896e5ea9d335022b3ba16a4b69f83ca9d86b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: charangowdat <charantcharant252@gmail.com>
+Date:   Thu Sep 25 10:27:05 2025 +0530
+
+    posts crud features
+
+[33mcommit 0fe1bba865a0fe81a70de647dbb1987ccf7d8c1c[m
+Author: charangowdat <charantcharant252@gmail.com>
+Date:   Wed Sep 24 19:29:44 2025 +0530
+
+    category crud functionality
+
+[33mcommit 1b7057822cdae2f449910d8e9d4b322565a89ee1[m
+Author: charangowdat <charantcharant252@gmail.com>
+Date:   Tue Sep 23 16:22:45 2025 +0530
+
+    registration and login functionalities
+
+[33mcommit a23722101c491fcb419e616f9e9ead1c07f3a984[m
+Author: charangowdat <charantcharant252@gmail.com>
+Date:   Mon Sep 22 22:51:54 2025 +0530
+
+    blogs and search features
+
+[33mcommit 35be584b78046c0d16743f53a610c5328c513276[m
+Author: charangowdat <charantcharant252@gmail.com>
+Date:   Mon Sep 22 14:56:48 2025 +0530
+
+    posts by category
+
+[33mcommit 8c0cb45e1a1771dbfb657f76d16b157079412ea6[m
+Author: charangowdat <charantcharant252@gmail.com>
+Date:   Sun Sep 21 14:40:59 2025 +0530
+
+    blogs app and blog model
+
+[33mcommit 00f61846b04d5bd4cf9f90b90bfc32733f1ed755[m
+Author: charangowdat <charantcharant252@gmail.com>
+Date:   Sat Sep 20 20:55:41 2025 +0530
+
+    initialized django blog and created home page
