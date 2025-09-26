@@ -7,6 +7,7 @@ from django.contrib import auth
 from aboutusfeatures.models import About
 from blogs.models import Blog, Category
 from .forms import RegistrationForm
+from blogs.decorators import anonymous_required
 
 
 def home(request):
@@ -24,6 +25,7 @@ def home(request):
   }
   return render(request, 'home.html', context)
 
+@anonymous_required
 def register(request):
   if request.method == 'POST':
     form = RegistrationForm(request.POST)
@@ -38,6 +40,7 @@ def register(request):
     }
   return render(request, 'register.html', context)
 
+@anonymous_required
 def login(request):
   if request.method == 'POST':
     form = AuthenticationForm(request, request.POST)
